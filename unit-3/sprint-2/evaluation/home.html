@@ -60,30 +60,25 @@
     let appendData = ({articles}) => {
         data1.innerHTML = "";
         //data1.innerHTML = `<p>${author}`;
-        articles.forEach(({author, title, url, urlToImage, description}) => {
+       articles.forEach(({ author, title, url, urlToImage, description, publishedAt }) => {
             let div = document.createElement("div");
-         console.log("harish");
+            console.log("harish");
             div.innerHTML = `
                              <a href ="${url}" target="_blank">${title}</a>
+                             <br>
+                             <br>
                              <img src="${urlToImage}"/>
-                             <p>${description}</p>
-                             <p>${author}</p>
+                             <br>
+                             <p>${description}</p>  
+                             <br>
+                             <p>Author:${author}</p>
+                             <p>Published At: ${publishedAt}</p>
+                             <br>
+                             <hr>
+                             <br>
                              `
-       data1.append(div);
+           data1.append(div);                  
         })
     }
-
-     async function showdata() {
-            let s = document.getElementById("find").value;
-            let res = await fetch(`https://newsapi.org/v2/top-headlines?q=${s}&apiKey=98cd19dfe9ea440ebff2619681c0dffc`)
-
-            let data = await res.json();
-
-            // appendData1();
-            //return data;
-            console.log(data);
-        }
-   // let parent = document.getElementById("data");
-  // appendData(data, parent);
   
 </script>
