@@ -14,7 +14,7 @@ async function getData(url)
 
 function appendData(products, parent)
 {
-    products.forEach(({ author, title, description, url }) => {
+    products.forEach(([{ author, title, description, url }]) => {
         let div = document.createElement("div");
         
         let p = document.createElement("p");
@@ -36,4 +36,4 @@ function appendData(products, parent)
     })
 }
 
-export {getData, appendData}
+export {getData}
