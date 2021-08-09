@@ -33,21 +33,21 @@
 </style> -->
 
 <body>
-    <div id = "navbar">
+    <!-- <div id = "navbar">
         <h3><a href = "./home.html">Home</a></h3>
 
         <div class="options">
         <h3><a href="./search.html">search</a></h3>
         </div>
     </div>
-    <div id="data1"></div>
+    <div id="data1"></div> -->
 </body>
 
 </html>
 <script type="module">
-    // import myNavbar from "./components/navbar.js"
+    import myNavbar from "./components/navbar.js"
 
-    // document.body.innerHTML = myNavbar();
+    document.body.innerHTML = myNavbar();
 
     import {getData} from "./scripts/show.js"
     
@@ -59,15 +59,18 @@
       });
     let appendData = ({articles}) => {
         data1.innerHTML = "";
-        data1.innerHTML = `<p>${author}`;
-        // articles.forEach(({author, title}) => {
-        //     let div = document.createElement("div");
-        //  console.log("harish");
-        //     div.innerHTML = `<p>${title}</p>
-        //                      <p>${author}</p>`
-
-       // data1.append(div);
-        // })
+        //data1.innerHTML = `<p>${author}`;
+        articles.forEach(({author, title, url, urlToImage, description}) => {
+            let div = document.createElement("div");
+         console.log("harish");
+            div.innerHTML = `
+                             <a href ="${url}">${title}</a>
+                             <img src="${urlToImage}"/>
+                             <p>${description}</p>
+                             <p>${author}</p>
+                             `
+       data1.append(div);
+        })
     }
    // let parent = document.getElementById("data");
   // appendData(data, parent);

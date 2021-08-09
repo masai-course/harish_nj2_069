@@ -7,7 +7,7 @@ function navbar()
         <h3><a href="./search.html">search</a></h3>
         </div>
     </div>
-    <div id = "data"></div>`
+    <div id = "data1"></div>`
 
 }
 export default navbar
