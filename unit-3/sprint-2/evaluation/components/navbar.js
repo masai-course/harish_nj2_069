@@ -4,8 +4,7 @@ function navbar()
         <h3><a href = "./home.html">Home</a></h3>
 
         <div class="options">
-       <input type ="text" id="search1" placeholder="Enter news topic"/>
-       <input type = "submit" onclick="showdata()"/>
+        <h3><a href="./search.html">search</a></h3>
         </div>
     </div>
     <div id = "data1"></div>`

@@ -72,6 +72,17 @@
        data1.append(div);
         })
     }
+
+     async function showdata() {
+            let s = document.getElementById("find").value;
+            let res = await fetch(`https://newsapi.org/v2/top-headlines?q=${s}&apiKey=98cd19dfe9ea440ebff2619681c0dffc`)
+
+            let data = await res.json();
+
+            // appendData1();
+            //return data;
+            console.log(data);
+        }
    // let parent = document.getElementById("data");
   // appendData(data, parent);
   
