@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<style>
+<!-- <style>
 #navbar
 {
     display: flex;
@@ -23,15 +25,34 @@
     list-style-type: none;
 }
 
+.options h3
+{
+    padding-left: 30px;
+    padding-right: 10px;
+}
+</style> -->
 
-</style>
 <body>
-    <div id = "navbar">
+    <!-- <div id = "navbar">
         <h3><a href = "./home.html">Home</a></h3>
 
         <div class="options">
         <h3><a href="./search.html">search</a></h3>
         </div>
-    </div>
+    </div> -->
 </body>
+
 </html>
+<script type="module">
+    import myNavbar from "./components/navbar.js"
+
+    document.body.innerHTML = myNavbar();
+
+    import {getData} from "./scripts/show.js"
+    
+    let response = getData("https://newsapi.org/v2/top-headlines?country=in&apiKey=98cd19dfe9ea440ebff2619681c0dffc")
+    
+    response.then((data) => {
+        console.log(data);
+    })
+</script>
