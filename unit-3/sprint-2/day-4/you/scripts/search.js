@@ -43,32 +43,9 @@ function appendData({ meals: [{ strMealThumb, strMeal, strCategory, strInstructi
 
 }
 
-// function appendData1({ categories: [{ strCategory, strCategoryThumb, strCategoryDescription }] } , parent)
-//     {
-// let div = document.createElement('div');
-
-//     let p = document.createElement('p');
-//     p.innerText = strCategory;
-
-//     let img = document.createElement('img');
-
-//     img.src = strCategoryThumb;
-
-//     let p1 = document.createElement('p');
-
-//     p1.innerText = strCategoryDescription;
-
-//     div.append(p, img, p1);
-
-//     parent.append(div);
-
-// }
-
-function appendData1(products, parent)
-{
-    products.forEach(({ categories: [{ strCategory, strCategoryThumb, strCategoryDescription }] }) => {
-      
-    let div = document.createElement('div');
+function appendData1({ categories: [{ strCategory, strCategoryThumb, strCategoryDescription }] } , parent)
+    {
+let div = document.createElement('div');
 
     let p = document.createElement('p');
     p.innerText = strCategory;
@@ -80,14 +57,37 @@ function appendData1(products, parent)
     let p1 = document.createElement('p');
 
     p1.innerText = strCategoryDescription;
-    
 
     div.append(p, img, p1);
 
     parent.append(div);
-        
-    })
+
 }
+
+// function appendData1(products, parent)
+// {
+//     products.forEach(({ categories: [{ strCategory, strCategoryThumb, strCategoryDescription }] }) => {
+      
+//     let div = document.createElement('div');
+
+//     let p = document.createElement('p');
+//     p.innerText = strCategory;
+
+//     let img = document.createElement('img');
+
+//     img.src = strCategoryThumb;
+
+//     let p1 = document.createElement('p');
+
+//     p1.innerText = strCategoryDescription;
+    
+
+//     div.append(p, img, p1);
+
+//     parent.append(div);
+        
+//     })
+// }
 
 export {search1, getData, appendData, appendData1 }
 
