@@ -10,5 +10,6 @@ function navbar()
     </div>
     <div id = "data1"></div>`
 
+    
 }
 export default navbar

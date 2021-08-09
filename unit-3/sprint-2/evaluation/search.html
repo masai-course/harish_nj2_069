@@ -21,28 +21,19 @@
 </body>
 </html>
 <script>
-    // import myNavbar from "./components/navbar.js"
-
-    // document.body.innerHTML = myNavbar();
-
-    // import { showdata } from "./scripts/show.js"
-
-   
     async function showdata() {
          let s = document.getElementById("find").value;
             let res = await fetch(`https://newsapi.org/v2/top-headlines?q=${s}&apiKey=98cd19dfe9ea440ebff2619681c0dffc`)
 
             let data = await res.json();
-        
-           // appendData1();
-            //return data;
+    
             console.log(data);
             appendData1(data);
         }
 
         let appendData1 = ({ articles }) => {
                 data1.innerHTML = "";
-                //data1.innerHTML = `<p>${author}`;
+                
                 articles.forEach(({ author, title, url, urlToImage, description, publishedAt }) => {
                     let div = document.createElement("div");
                     console.log("harish");
