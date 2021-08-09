@@ -37,4 +37,5 @@ async function getData(url)
 //     })
 // }
 
+
 export {getData}
