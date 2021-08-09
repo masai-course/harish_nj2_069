@@ -35,6 +35,8 @@ input
     width: 200px;
     margin-top: 15px;
     border-radius: 100px;
+    outline: none;
+    font-size: 20px;
 }
 
 #submit
@@ -42,6 +44,7 @@ input
     height: 30px;
     width: 100px;
     margin-top: 22px;
+    font-size: 20px;
 }
 
 h1
@@ -58,4 +61,9 @@ grid-gap: 1%;
 justify-content: center;
 padding: 5%;
 font-size: 20px;
+}
+
+body
+{
+    background-color:rgb(164, 218, 226);
 }

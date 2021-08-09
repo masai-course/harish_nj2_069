@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div id="navbar">   
+        <h1>Welcome to NEWS PORTAL</h1>
+        <h3><a href="./home.html">Home</a></h3>
+    
+        <div class="options">
+            <input type="text" id="find" placeholder="Enter news topic" />
+            <input type="submit" id="submit" onclick="showdata()" />
+        </div>
+    </div>
+    <div id="data1"></div>
+</body>
+</html>
+<script>
+    // import myNavbar from "./components/navbar.js"
+
+    // document.body.innerHTML = myNavbar();
+
+    // import { showdata } from "./scripts/show.js"
+
+   
+    async function showdata() {
+         let s = document.getElementById("find").value;
+            let res = await fetch(`https://newsapi.org/v2/top-headlines?q=${s}&apiKey=98cd19dfe9ea440ebff2619681c0dffc`)
+
+            let data = await res.json();
+        
+           // appendData1();
+            //return data;
+            console.log(data);
+            appendData1(data);
+        }
+
+        let appendData1 = ({ articles }) => {
+                data1.innerHTML = "";
+                //data1.innerHTML = `<p>${author}`;
+                articles.forEach(({ author, title, url, urlToImage, description, publishedAt }) => {
+                    let div = document.createElement("div");
+                    console.log("harish");
+                    div.innerHTML = `
+                             <a href ="${url}" target="_blank">${title}</a>
+                             <br>
+                             <br>
+                             <img src="${urlToImage}"/>
+                             <br>
+                             <p>${description}</p>  
+                             <br>
+                             <p>Author: ${author}</p>
+                             <p>Published At: ${publishedAt}</p>
+                             <br>
+                             <hr>
+                             <br>
+                             `
+                    data1.append(div);
+                })
+            }
+</script>

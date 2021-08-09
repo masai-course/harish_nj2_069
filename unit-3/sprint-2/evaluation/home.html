@@ -51,7 +51,7 @@
 
     import {getData} from "./scripts/show.js"
     
-    let response = getData("https://newsapi.org/v2/top-headlines?country=in&apiKey=98cd19dfe9ea440ebff2619681c0dffc")
+    let response = getData("https://newsapi.org/v2/top-headlines?country=in&country=us&apiKey=98cd19dfe9ea440ebff2619681c0dffc")
     
     response.then((data) => {
         console.log(data);
@@ -71,7 +71,7 @@
                              <br>
                              <p>${description}</p>  
                              <br>
-                             <p>Author:${author}</p>
+                             <p>Author: ${author}</p>
                              <p>Published At: ${publishedAt}</p>
                              <br>
                              <hr>
