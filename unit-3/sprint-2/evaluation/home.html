@@ -48,11 +48,13 @@
 
     document.body.innerHTML = myNavbar();
 
-    import {getData} from "./scripts/show.js"
+    import {getData, appendData} from "./scripts/show.js"
     
     let response = getData("https://newsapi.org/v2/top-headlines?country=in&apiKey=98cd19dfe9ea440ebff2619681c0dffc")
     
     response.then((data) => {
         console.log(data);
-    })
+    let parent = document.getElementById("data");
+    appendData(data, parent);
+    });
 </script>
