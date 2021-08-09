@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<!-- <style>
+    #navbar 
+    {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4%;
+        padding-right: 4%;
+        border: solid 1px black;
+    }
+
+    .options 
+    {
+     display: flex;
+     justify-content: center;
+     list-style-type: none;
+    }
+
+    .options h3
+    {
+        padding-left: 30px;
+        padding-right: 10px;
+    }
+</style> -->
+<body>
+    <!-- <div id="navbar">
+            <h3><a href="/">Home</a></h3>
+        
+            <div class="options">
+                <h3><a href="/search.html">Search Receipe</a></h3>
+                <h3><a href="/day.html">Receipe of the day</a></h3>
+                <h3><a href="/latest.html">Latest Receipe</a></h3>
+            </div>
+        </div> -->
+</body>
+</html> 
+<script type="module">
+    import myNavbar from "./components/navbar.js"
+
+    document.body.innerHTML = myNavbar();
+
+    import {getData, appendData1} from "./scripts/search.js";
+    let response = getData("https://www.themealdb.com/api/json/v1/1/categories.php")
+
+     response.then((data) => {
+            let parent = document.getElementById("data");
+            console.log(data);
+            appendData1(data, parent);
+        })
+
+</script>
