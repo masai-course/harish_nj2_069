@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+     #cont{
+            height: 300px;
+            width: 500px;
+            border: 2px solid black;
+            margin: auto;
+            margin-top: 50px;
+            font-size: 25px;
+            text-align: center;
+            }
+
+        #main
+        {
+            text-align: center;
+        }
+
+    input
+    {
+        height: 30px;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    button
+    {
+        width: 100px;
+        height: 30px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div id="main">
+    <h1>Movies Data</h1>
+    <input type="text" id="movieData" />
+    <button onclick="getMovieData()">Search</button>
+    </div>
+    
+    <div id="cont" ></div>
+</body>
+</html>
+<script>
+
+    async function getMovieData()
+    {
+        let movieData = document.getElementById("movieData").value;
+        try
+        {
+            let res = await fetch(`http://www.omdbapi.com/?apikey=19ea5b78&t=${movieData}`)
+            let data = await res.json();
+            console.log(data);
+            showmovie(data);
+        }
+        catch (err)
+        {
+            console.log("err:",err);
+        }
+        
+    }
+
+    let cont = document.getElementById('cont');
+    function showmovie(movieData)
+    {
+        let div = document.createElement('div');
+
+        cont.innerHTML = ""
+        div.innerHTML = `
+     <p>${movieData.Title}</p>
+     <p> Cast: ${movieData.Actors}</p>
+     <p> Release Date: ${movieData.Released}</p>
+     <p> Director: sir ${movieData.Director}</p>
+     <p>Imdb rating:${movieData.imdbRating}</p>`
+          cont.append(div);
+
+    //    console.log("Harish");
+    }
+</script>

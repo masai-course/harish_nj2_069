@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #main
+{
+    /* margin: auto; */
+   text-align: center;
+}
+ 
+h1
+{
+    color:rgb(194, 113, 113);
+    font-size: 40px;
+}
+
+
+    input
+    {
+        height: 30px;
+        width: 300px;
+        font-size: 20px;
+        color: black;
+    }
+
+    button
+    {
+        width: 100px;
+        height: 30px;
+        font-size: 20px;
+        color: white;
+        background-color: black;
+        border-radius: 5px;
+    }
+
+#cont
+{
+  height: 700px;
+  width: 500px;
+  /* border: 2px solid black; */
+    margin: auto;
+    margin-top: 50px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+body
+{
+    background-color: rgb(42, 39, 39) ;
+}
+
+#Rimage
+{
+    text-align: center;
+}
+
+    #Rimage img
+    {
+        width: 300px;
+        height: 70px;
+        border: 2px solid black;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+</style>
+
+<body>
+    <div id="main">
+        <h1>Movie Search</h1>
+        <input type="text" id="movieData" placeholder="Enter Movie Name" />
+        <button onclick="getMovieData()">Search</button>
+    </div>
+    <div id="Rimage"></div>
+    <div id="cont"></div>
+</body>
+
+</html>
+
+<script>
+    async function getMovieData() {
+        let movieData = document.getElementById("movieData").value;
+        try {
+            let res = await fetch(`http://www.omdbapi.com/?apikey=19ea5b78&t=${movieData}`)
+            let data = await res.json();
+            //console.log(data);
+            if (data.Response == "False") {
+                cont.innerHTML = null;
+                //   console.log("Success")
+                let div = document.getElementById("cont");
+
+                let img = document.createElement("img")
+                img.src = "http://decoden.org/girona/common/images/sorry-no-data.png";
+
+                div.append(img);
+            }
+            else {
+                show(data)
+                // show(data1)
+            }
+        }
+        catch (err) {
+            console.log("err:", err);
+        }
+    }
+
+    let cont = document.getElementById("cont")
+    function show(movieData) {
+        let div1 = document.createElement("div1")
+
+        cont.innerHTML = null;
+        div1.innerHTML = `
+       
+        <img src= "${movieData.Poster}"/>
+        <p>Title: ${movieData.Title}</p>
+       <p> Cast: ${movieData.Actors}</p>
+       <p> Release Date: ${movieData.Released}</p>
+       <p> Director: sir ${movieData.Director}</p>
+       <p>Imdb rating:${movieData.imdbRating}</p>`
+
+        cont.append(div1);
+      
+        let test = `${movieData.imdbRating}`;
+           let div2 = document.getElementById("Rimage");
+            div2.innerHTML = null;
+        if(test > 8.5)
+        {
+         let img1 = document.createElement("img");
+          img1.src = "https://thumbs.dreamstime.com/b/recommended-price-tag-recommended-red-square-price-tag-118867562.jpg"
+          div2.append(img1);
+         // console.log("rate");
+        }
+    }
+
+
+</script>
