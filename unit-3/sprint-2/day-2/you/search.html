@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<style>
+   
+</style>
+<body>
+    <div id="navbar">
+        <h3><a href="./foodapp1.html">Home</a></h3>
+    
+        <div class="options">
+            <input id="item" type="text" placeholder="Search Receipe Here" />
+            <input type="submit" id="submit" onclick="search1()" />
+            <h3><a href="./day.html">Receipe of the day</a></h3>
+            <h3><a href="./latest.html">Latest Receipe</a></h3>
+        </div>
+    </div>
+    
+    <div id="data"></div>
+</body>
+</html>
+<script>
+    async function search1()
+    {
+        let s = document.getElementById("item").value;
+
+        let res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${s}`)
+
+        let data = await res.json();
+
+        console.log(data);
+        appendingData(data);
+    }
+
+    let appendingData = ({ meals }) => {
+        data.innerHTML = "";
+    
+    meals.forEach(({ strMeal, strCategory, strYoutube, strMealThumb, strInstructions}) => {
+     let div = document.createElement("div");
+       div.innerHTML =`
+                   <p style ="font-size:25px">Category: ${strCategory}</p>
+                   <img src="${strMealThumb}"/>
+                   <p style="font-size:30px">Dish Name:   ${strMeal}</p>
+                   <p>Instructions: ${strInstructions}</p>
+                   <a href= "${strYoutube}" target="_blank" >Youtube Link</a>`
+        data.append(div);
+    })
+}
+</script>

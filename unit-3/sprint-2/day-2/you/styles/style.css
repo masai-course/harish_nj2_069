@@ -1,0 +1,56 @@
+
+    #navbar 
+    {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4%;
+        padding-right: 4%;
+        border: solid 1px black;
+    }
+
+    .options 
+    {
+     display: flex; 
+     justify-content: center;
+     list-style-type: none;
+    }
+
+    .options h3
+    {
+        padding-left: 30px;
+        padding-right: 10px;
+    }
+
+input 
+{
+  background: transparent;
+  border-radius: 100px;
+  /* border: none; */
+  font-size: 17px;
+  outline: none;
+  height: 40px;
+  width: 200px;
+  margin-top: 8px;
+}
+
+#submit
+{
+   height: 30px;
+   width: 80px;
+   margin-top: 15px;
+}
+
+#data 
+{
+    display: grid;
+    width: 1200px;
+    padding: 2%;
+    font-size: 20px;
+}
+
+img
+{
+    display: grid;
+    width: 300px;
+    height: 200px;
+}
