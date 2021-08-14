@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/15707e82f8.js" crossorigin="anonymous"></script>
+</head>
+<style>
+#main
+{
+    display: flex;
+     padding: 1%;
+    
+}
+
+#heading img
+{
+    width: 100%;
+    height: 30px;
+}
+
+input 
+{
+    width: 100%;
+    height:40px;
+    border-radius: 100px;
+    border-color: rgb(233,233,233);
+    margin-left: 7%;
+    /* border: none; */
+    outline: none;
+}
+.fas
+{
+    display: flex;
+background: transparent;
+  border: none;
+  outline: none;
+ padding: 5%;
+ /* margin-left: -50px; ; */
+}
+
+#bar
+{
+    /* border: 2px solid black; */
+    border-radius: 100px;
+    display: flex;
+    width:50%;  
+    margin-left: 50px;
+    position: relative;
+    top:0;
+    /* grid-gap: 10%; */
+}
+
+#submit
+{
+    position: absolute;
+    top:0;
+    right: 10px;
+    z-index:1;
+    width: 100px;
+    margin-top: 2px;
+}
+
+#searchicons
+{
+    display: flex;
+    justify-content: space-around;
+    width: 45%;
+    margin-left: 14%;
+    margin-top: 1%;
+    color: rgb(155,157,160);
+}
+
+#display
+{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+}
+
+</style>
+<body>
+    <div id="main">
+    <div id="heading">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"/>
+    </div>
+   <div id="bar">
+    <input type="text" id="search1">
+    <!-- <div>
+        <i class="fas fa-microphone" id="phone"></i>
+        <i class="fas fa-search" id="glass" onclick="search()"></i>
+    </div> -->
+    <input id="submit" onclick="search()" type="submit"/>
+    </div>
+
+    </div>
+
+    <div id="searchicons">
+    <div> <i class="fas fa-search" onclick=""></i>All</div>
+    <div><i class="fas fa-newspaper"></i>News</div>
+    <div onclick="main()"><i class="fas fa-images"></i>Images</div>
+    <div><i class="fas fa-shopping-cart"></i>Shopping</div>
+    <div><i class="fas fa-map-pin"></i>Maps</div>
+    <div><i class="fas fa-ellipsis-v"></i>More</div>
+    </div>
+
+    <div id="display">
+
+    <div id="container" class ="container"></div>
+    <div id="sidecont" class = "sidecont"></div>
+    </div>
+</body>
+</html>
+<script>
+    let obj;
+   async function search()
+   {
+       let res = await fetch(`http://api.serpstack.com/search?access_key=28acfea1f972472c1494bc34ac033c21&query=${search1.value}`)
+       let data = await res.json()
+     show(data);
+     show1(data);
+
+     obj = data;
+
+      console.log(data);
+      // console.log("harish");
+   }
+
+   let show = ({organic_results, search_information}) => {
+       container.innerHTML =""
+       container.innerHTML = `
+       <p>About ${search_information.total_results} results (${search_information.time_taken_displayed}seconds)</p>`
+
+       organic_results.forEach(({title, url}) =>
+       {
+           let div=document.createElement("div");
+           div.innerHTML=`
+           <a href="${url}">${title}</a>`
+           container.append(div)
+       })
+   }
+
+   let show1 = ({knowledge_graph}) => {
+       sidecont.innerHTML="";
+       sidecont.innerHTML=`
+       <h3> ${knowledge_graph.title}</h3>
+       <p> Type : ${knowledge_graph.type}</p>
+       <p> Description : ${knowledge_graph.description}</p>
+       <img src=${knowledge_graph.image_urls}>
+       `
+    }
+
+    let main = (obj) => {
+        display.innerHTML = "";
+         inline_images.forEach(({inline_images}) =>
+         {
+             let img = document.createElement("img")
+             img.src=`"${image_url}"`
+             display.append(img);
+         })
+    }
+
+    // function appendImages(obj) 
+    // {
+    //     let {inline_images} = obj
+    //     display.innerHTML="";
+    //     inline_images.forEach(({image_url, title})=> {
+    //         let img = document.createElement("img");
+    //         img.src= `${image_url}`
+    //         let title = document.createElement("p")
+    //         p_title = `${inline_images.title}`
+    //         display.append(img,title);
+    //         console.log("harish1");
+    //     })
+    //     console.log("harish");
+    // }
+
+    // let main = () => {
+    //     appendImages(obj)
+    // }
+</script>
