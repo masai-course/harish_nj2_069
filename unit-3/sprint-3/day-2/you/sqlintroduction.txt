@@ -1,0 +1,62 @@
+use blog;
+select database();
+create table authors(id integer auto_increment PRIMARY KEY, first_name VARCHAR(20), last_name VARCHAR(20));
+
+insert into authors(first_name, last_name) values ("Valmiki", "Maharshi");
+
+insert into authors(first_name, last_name) values ("Vyaasa", "Maharshi");
+
+insert into authors(first_name, last_name) values ("Krishna", "Devaraya");
+
+insert into authors(first_name, last_name) values ("Tenali", "Ramakrishna");
+
+insert into authors(first_name, last_name) values ("Vishwanath", "Satyanarayana");
+
+create table posts(id INTEGER auto_increment PRIMARY KEY, title VARCHAR(20), content VARCHAR(100), time INTEGER, author_id INTEGER not null, FOREIGN KEY (author_id) REFERENCES authors(id), author_name VARCHAR(20));
+
+insert into posts (title, content, time, author_id, author_name)values ("Ramayana", "1st-chapter",1000,1,"Valmiki");
+
+insert into posts (id, title, content, time, author_id, author_name)values (2,"Mahabharath", "1st-chapter",500,2,"Vyaasa"); 
+
+insert into posts (id,title, content, time, author_id, author_name)values (3,"Amuktamalyada", "1st-chapter",1500,3,"Krishna");
+
+insert into posts (id,title, content, time, author_id, author_name)values (4, "Panduranga Mahatyam", "1st-chapter",2000,4,"tenali");
+
+insert into posts (id,title, content, time, author_id, author_name)values (5, "Veyyi Padagalu", "1st-chapter",1500,5,"Vishwanath");
+
+create table comments(id INTEGER auto_increment PRIMARY KEY, comment_body VARCHAR(20), author_id INTEGER not null, FOREIGN KEY (author_id) REFERENCES authors(id), post_id INTEGER NOT NULL, FOREIGN KEY (post_id) REFERENCES posts(id));
+
+insert into comments (comment_body, author_id, post_id)values ("Devotional", 1, 1); 
+
+insert into comments (comment_body, author_id, post_id)values ("Devotional2", 2, 2); 
+
+insert into comments (comment_body, author_id, post_id)values ("Devotional3", 3, 3); 
+
+insert into comments (comment_body, author_id, post_id)values ("Devotional4", 4, 4);
+
+insert into comments (comment_body, author_id, post_id)values ("Devotional5", 5, 5);
+
+create table tag(id INTEGER auto_increment PRIMARY KEY, tag VARCHAR(20), post_id INTEGER NOT NULL, FOREIGN KEY (post_id) REFERENCES posts(id));
+
+insert into tag (tag, post_id)values ("tag1", 1);
+
+insert into tag (tag, post_id)values ("tag2", 2);
+
+insert into tag (tag, post_id)values ("tag3", 3);
+
+insert into tag (tag, post_id)values ("tag4", 4);
+
+insert into tag (tag, post_id)values ("tag5", 5);
+
+update posts set time = 2020 where time = 1500;
+
+update posts set time = 1500 where id = 3;
+
+update authors set first_name = "SriKrishna" where first_name ="Krishna"; 
+
+
+update comments set comment_body = "devotional1" where comment_body = "devotional";
+
+update tag set tag = "tagone" where tag = "tag1";
+
+delete from authors where id = 5;
