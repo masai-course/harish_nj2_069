@@ -1,0 +1,1695 @@
+> use Movies
+switched to db Movies
+> show dbs;
+Movies  0.000GB
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+> show collections;
+mockMovie
+
+
+> db.mockMovie.find();
+{ "_id" : ObjectId("611c2758faca6e5f8068111e"), "id" : 1, "Movie_Name" : "Barbarians at the Gate", "Movie_Genre" : "Drama", "Production_Year " : 1964, "Budget" : 9803 }
+{ "_id" : ObjectId("611c2758faca6e5f8068111f"), "id" : 2, "Movie_Name" : "Looking for Cheyenne (Oublier Cheyenne)", "Movie_Genre" : "Drama|Romance", "Production_Year " : 1616, "Budget" : 9769 }
+{ "_id" : ObjectId("611c2758faca6e5f80681120"), "id" : 3, "Movie_Name" : "Charlie Chan at the Olympics", "Movie_Genre" : "Comedy|Crime|Mystery|Thriller", "Production_Year " : 2316, "Budget" : 10491 }
+{ "_id" : ObjectId("611c2758faca6e5f80681121"), "id" : 4, "Movie_Name" : "Man Who Fell to Earth, The", "Movie_Genre" : "Drama|Sci-Fi", "Production_Year " : 1732, "Budget" : 9847 }
+{ "_id" : ObjectId("611c2758faca6e5f80681122"), "id" : 5, "Movie_Name" : "Io Island (Iodo)", "Movie_Genre" : "Mystery", "Production_Year " : 2170, "Budget" : 10431 }
+{ "_id" : ObjectId("611c2758faca6e5f80681123"), "id" : 6, "Movie_Name" : "Room, The", "Movie_Genre" : "Comedy|Drama|Romance", "Production_Year " : 2451, "Budget" : 9974 }
+{ "_id" : ObjectId("611c2758faca6e5f80681124"), "id" : 7, "Movie_Name" : "For the Love of a Dog", "Movie_Genre" : "Children", "Production_Year " : 2022, "Budget" : 9619 }
+{ "_id" : ObjectId("611c2758faca6e5f80681125"), "id" : 8, "Movie_Name" : "All at Sea", "Movie_Genre" : "Comedy", "Production_Year " : 1618, "Budget" : 9895 }
+{ "_id" : ObjectId("611c2758faca6e5f80681126"), "id" : 9, "Movie_Name" : "In Their Sleep (Dans ton sommeil)", "Movie_Genre" : "Horror|Thriller", "Production_Year " : 1527, "Budget" : 10040 }
+{ "_id" : ObjectId("611c2758faca6e5f80681127"), "id" : 10, "Movie_Name" : "Cardinal, The", "Movie_Genre" : "Drama", "Production_Year " : 1651, "Budget" : 9961 }
+{ "_id" : ObjectId("611c2758faca6e5f80681128"), "id" : 11, "Movie_Name" : "Kite Runner, The", "Movie_Genre" : "Drama", "Production_Year " : 2083, "Budget" : 10215 }
+{ "_id" : ObjectId("611c2758faca6e5f80681129"), "id" : 12, "Movie_Name" : "Raincoat", "Movie_Genre" : "Drama|Romance", "Production_Year " : 1858, "Budget" : 9980 }
+{ "_id" : ObjectId("611c2758faca6e5f8068112a"), "id" : 13, "Movie_Name" : "Children of Leningradsky, The", "Movie_Genre" : "Documentary", "Production_Year " : 2166, "Budget" : 9662 }
+{ "_id" : ObjectId("611c2758faca6e5f8068112b"), "id" : 14, "Movie_Name" : "Battle of the Bulge", "Movie_Genre" : "Action|Drama|War", "Production_Year " : 2435, "Budget" : 9774 }
+{ "_id" : ObjectId("611c2758faca6e5f8068112c"), "id" : 15, "Movie_Name" : "Open Heart", "Movie_Genre" : "Documentary", "Production_Year " : 1715, "Budget" : 9832 }
+{ "_id" : ObjectId("611c2758faca6e5f8068112d"), "id" : 16, "Movie_Name" : "Breaking Point", "Movie_Genre" : "Thriller", "Production_Year " : 1520, "Budget" : 9516 }
+{ "_id" : ObjectId("611c2758faca6e5f8068112e"), "id" : 17, "Movie_Name" : "Song of the Thin Man", "Movie_Genre" : "Comedy|Crime|Drama|Musical|Mystery|Romance", "Production_Year " : 1880, "Budget" : 10408 }
+{ "_id" : ObjectId("611c2758faca6e5f8068112f"), "id" : 18, "Movie_Name" : "Children of Heaven, The (Bacheha-Ye Aseman)", "Movie_Genre" : "Comedy|Drama", "Production_Year " : 2110, "Budget" : 9779 }
+{ "_id" : ObjectId("611c2758faca6e5f80681130"), "id" : 19, "Movie_Name" : "French Fried Vacation (Les Bronzés)", "Movie_Genre" : "Comedy", "Production_Year " : 1674, "Budget" : 9590 }
+{ "_id" : ObjectId("611c2758faca6e5f80681131"), "id" : 20, "Movie_Name" : "Garden of the Finzi-Continis, The (Giardino dei Finzi-Contini, Il)", "Movie_Genre" : "Drama", "Production_Year " : 2219, "Budget" : 10441 }
+Type "it" for more
+
+////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({"Movie_Name": {$eq : "Man Who Fell to Earth, The"}}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f80681121"),
+        "id" : 4,
+        "Movie_Name" : "Man Who Fell to Earth, The",
+        "Movie_Genre" : "Drama|Sci-Fi",
+        "Production_Year " : 1732,
+        "Budget" : 9847
+}
+>
+
+//////////////////////////////////////////////////////////////////////////////////
+
+> db.mockMovie.find({"Movie_Name": {$ne : "Man Who Fell to Earth, The"}}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111e"),
+        "id" : 1,
+        "Movie_Name" : "Barbarians at the Gate",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1964,
+        "Budget" : 9803
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111f"),
+        "id" : 2,
+        "Movie_Name" : "Looking for Cheyenne (Oublier Cheyenne)",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1616,
+        "Budget" : 9769
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681120"),
+        "id" : 3,
+        "Movie_Name" : "Charlie Chan at the Olympics",
+        "Movie_Genre" : "Comedy|Crime|Mystery|Thriller",
+        "Production_Year " : 2316,
+        "Budget" : 10491
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681122"),
+        "id" : 5,
+        "Movie_Name" : "Io Island (Iodo)",
+        "Movie_Genre" : "Mystery",
+        "Production_Year " : 2170,
+        "Budget" : 10431
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681123"),
+        "id" : 6,
+        "Movie_Name" : "Room, The",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2451,
+        "Budget" : 9974
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681124"),
+        "id" : 7,
+        "Movie_Name" : "For the Love of a Dog",
+        "Movie_Genre" : "Children",
+        "Production_Year " : 2022,
+        "Budget" : 9619
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681125"),
+        "id" : 8,
+        "Movie_Name" : "All at Sea",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1618,
+        "Budget" : 9895
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681126"),
+        "id" : 9,
+        "Movie_Name" : "In Their Sleep (Dans ton sommeil)",
+        "Movie_Genre" : "Horror|Thriller",
+        "Production_Year " : 1527,
+        "Budget" : 10040
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681127"),
+        "id" : 10,
+        "Movie_Name" : "Cardinal, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1651,
+        "Budget" : 9961
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681128"),
+        "id" : 11,
+        "Movie_Name" : "Kite Runner, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2083,
+        "Budget" : 10215
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681129"),
+        "id" : 12,
+        "Movie_Name" : "Raincoat",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1858,
+        "Budget" : 9980
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112a"),
+        "id" : 13,
+        "Movie_Name" : "Children of Leningradsky, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2166,
+        "Budget" : 9662
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112b"),
+        "id" : 14,
+        "Movie_Name" : "Battle of the Bulge",
+        "Movie_Genre" : "Action|Drama|War",
+        "Production_Year " : 2435,
+        "Budget" : 9774
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112c"),
+        "id" : 15,
+        "Movie_Name" : "Open Heart",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 1715,
+        "Budget" : 9832
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112d"),
+        "id" : 16,
+        "Movie_Name" : "Breaking Point",
+        "Movie_Genre" : "Thriller",
+        "Production_Year " : 1520,
+        "Budget" : 9516
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112e"),
+        "id" : 17,
+        "Movie_Name" : "Song of the Thin Man",
+        "Movie_Genre" : "Comedy|Crime|Drama|Musical|Mystery|Romance",
+        "Production_Year " : 1880,
+        "Budget" : 10408
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112f"),
+        "id" : 18,
+        "Movie_Name" : "Children of Heaven, The (Bacheha-Ye Aseman)",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2110,
+        "Budget" : 9779
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681130"),
+        "id" : 19,
+        "Movie_Name" : "French Fried Vacation (Les Bronzés)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1674,
+        "Budget" : 9590
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681131"),
+        "id" : 20,
+        "Movie_Name" : "Garden of the Finzi-Continis, The (Giardino dei Finzi-Contini, Il)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2219,
+        "Budget" : 10441
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681132"),
+        "id" : 21,
+        "Movie_Name" : "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei)",
+        "Movie_Genre" : "Adventure|Comedy|Fantasy|Romance|IMAX",
+        "Production_Year " : 1916,
+        "Budget" : 10263
+}
+Type "it" for more
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({"Budget": {$gte : 10000}}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f80681120"),
+        "id" : 3,
+        "Movie_Name" : "Charlie Chan at the Olympics",
+        "Movie_Genre" : "Comedy|Crime|Mystery|Thriller",
+        "Production_Year " : 2316,
+        "Budget" : 10491
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681122"),
+        "id" : 5,
+        "Movie_Name" : "Io Island (Iodo)",
+        "Movie_Genre" : "Mystery",
+        "Production_Year " : 2170,
+        "Budget" : 10431
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681126"),
+        "id" : 9,
+        "Movie_Name" : "In Their Sleep (Dans ton sommeil)",
+        "Movie_Genre" : "Horror|Thriller",
+        "Production_Year " : 1527,
+        "Budget" : 10040
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681128"),
+        "id" : 11,
+        "Movie_Name" : "Kite Runner, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2083,
+        "Budget" : 10215
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112e"),
+        "id" : 17,
+        "Movie_Name" : "Song of the Thin Man",
+        "Movie_Genre" : "Comedy|Crime|Drama|Musical|Mystery|Romance",
+        "Production_Year " : 1880,
+        "Budget" : 10408
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681131"),
+        "id" : 20,
+        "Movie_Name" : "Garden of the Finzi-Continis, The (Giardino dei Finzi-Contini, Il)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2219,
+        "Budget" : 10441
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681132"),
+        "id" : 21,
+        "Movie_Name" : "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei)",
+        "Movie_Genre" : "Adventure|Comedy|Fantasy|Romance|IMAX",
+        "Production_Year " : 1916,
+        "Budget" : 10263
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681134"),
+        "id" : 23,
+        "Movie_Name" : "I Am Maria (Jag är Maria)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1798,
+        "Budget" : 10290
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681136"),
+        "id" : 25,
+        "Movie_Name" : "Suicide Killers",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2457,
+        "Budget" : 10049
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681139"),
+        "id" : 28,
+        "Movie_Name" : "Ambush (Rukajärven tie)",
+        "Movie_Genre" : "Drama|Romance|War",
+        "Production_Year " : 1996,
+        "Budget" : 10390
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113b"),
+        "id" : 30,
+        "Movie_Name" : "Miss Pettigrew Lives for a Day",
+        "Movie_Genre" : "Comedy|Romance",
+        "Production_Year " : 1990,
+        "Budget" : 10307
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113c"),
+        "id" : 31,
+        "Movie_Name" : "Century of the Self, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2037,
+        "Budget" : 10496
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113d"),
+        "id" : 32,
+        "Movie_Name" : "Blood Relatives (Liens de sang, Les)",
+        "Movie_Genre" : "Crime|Drama|Mystery|Thriller",
+        "Production_Year " : 2224,
+        "Budget" : 10151
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113e"),
+        "id" : 33,
+        "Movie_Name" : "Blind Faith",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1582,
+        "Budget" : 10038
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681141"),
+        "id" : 36,
+        "Movie_Name" : "Santa Clause, The",
+        "Movie_Genre" : "Comedy|Drama|Fantasy",
+        "Production_Year " : 1584,
+        "Budget" : 10091
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681143"),
+        "id" : 38,
+        "Movie_Name" : "Garden of Words, The (Koto no ha no niwa)",
+        "Movie_Genre" : "Animation|Romance",
+        "Production_Year " : 2201,
+        "Budget" : 10352
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681146"),
+        "id" : 41,
+        "Movie_Name" : "Rånarna",
+        "Movie_Genre" : "Action|Crime|Thriller",
+        "Production_Year " : 1664,
+        "Budget" : 10431
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681148"),
+        "id" : 43,
+        "Movie_Name" : "Seven Brides for Seven Brothers",
+        "Movie_Genre" : "Comedy|Musical|Romance|Western",
+        "Production_Year " : 2338,
+        "Budget" : 10146
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068114a"),
+        "id" : 45,
+        "Movie_Name" : "First Grader, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1808,
+        "Budget" : 10492
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068114b"),
+        "id" : 46,
+        "Movie_Name" : "Wasabi",
+        "Movie_Genre" : "Action|Comedy|Crime|Drama|Thriller",
+        "Production_Year " : 1652,
+        "Budget" : 10242
+}
+Type "it" for more
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({"Budget": {$lte : 10000}}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111e"),
+        "id" : 1,
+        "Movie_Name" : "Barbarians at the Gate",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1964,
+        "Budget" : 9803
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111f"),
+        "id" : 2,
+        "Movie_Name" : "Looking for Cheyenne (Oublier Cheyenne)",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1616,
+        "Budget" : 9769
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681121"),
+        "id" : 4,
+        "Movie_Name" : "Man Who Fell to Earth, The",
+        "Movie_Genre" : "Drama|Sci-Fi",
+        "Production_Year " : 1732,
+        "Budget" : 9847
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681123"),
+        "id" : 6,
+        "Movie_Name" : "Room, The",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2451,
+        "Budget" : 9974
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681124"),
+        "id" : 7,
+        "Movie_Name" : "For the Love of a Dog",
+        "Movie_Genre" : "Children",
+        "Production_Year " : 2022,
+        "Budget" : 9619
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681125"),
+        "id" : 8,
+        "Movie_Name" : "All at Sea",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1618,
+        "Budget" : 9895
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681127"),
+        "id" : 10,
+        "Movie_Name" : "Cardinal, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1651,
+        "Budget" : 9961
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681129"),
+        "id" : 12,
+        "Movie_Name" : "Raincoat",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1858,
+        "Budget" : 9980
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112a"),
+        "id" : 13,
+        "Movie_Name" : "Children of Leningradsky, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2166,
+        "Budget" : 9662
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112b"),
+        "id" : 14,
+        "Movie_Name" : "Battle of the Bulge",
+        "Movie_Genre" : "Action|Drama|War",
+        "Production_Year " : 2435,
+        "Budget" : 9774
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112c"),
+        "id" : 15,
+        "Movie_Name" : "Open Heart",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 1715,
+        "Budget" : 9832
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112d"),
+        "id" : 16,
+        "Movie_Name" : "Breaking Point",
+        "Movie_Genre" : "Thriller",
+        "Production_Year " : 1520,
+        "Budget" : 9516
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112f"),
+        "id" : 18,
+        "Movie_Name" : "Children of Heaven, The (Bacheha-Ye Aseman)",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2110,
+        "Budget" : 9779
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681130"),
+        "id" : 19,
+        "Movie_Name" : "French Fried Vacation (Les Bronzés)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1674,
+        "Budget" : 9590
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681133"),
+        "id" : 22,
+        "Movie_Name" : "Sugar & Spice",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 2140,
+        "Budget" : 9504
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681135"),
+        "id" : 24,
+        "Movie_Name" : "Barbarian Queen II: The Empress Strikes Back",
+        "Movie_Genre" : "Action|Adventure|Fantasy",
+        "Production_Year " : 1978,
+        "Budget" : 9850
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681137"),
+        "id" : 26,
+        "Movie_Name" : "Woman Chaser, The",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1785,
+        "Budget" : 9879
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681138"),
+        "id" : 27,
+        "Movie_Name" : "Lovers, The (Les Amants)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1632,
+        "Budget" : 9824
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113a"),
+        "id" : 29,
+        "Movie_Name" : "Szamanka",
+        "Movie_Genre" : "Drama|Horror|Mystery",
+        "Production_Year " : 2216,
+        "Budget" : 9783
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113f"),
+        "id" : 34,
+        "Movie_Name" : "Crocodile Dundee in Los Angeles",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 1627,
+        "Budget" : 9760
+}
+Type "it" for more
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({$and : [{"Production_Year " : {$gt : 2000}}, {"Budget": {$gt : 10000}}]}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f80681120"),
+        "id" : 3,
+        "Movie_Name" : "Charlie Chan at the Olympics",
+        "Movie_Genre" : "Comedy|Crime|Mystery|Thriller",
+        "Production_Year " : 2316,
+        "Budget" : 10491
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681122"),
+        "id" : 5,
+        "Movie_Name" : "Io Island (Iodo)",
+        "Movie_Genre" : "Mystery",
+        "Production_Year " : 2170,
+        "Budget" : 10431
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681128"),
+        "id" : 11,
+        "Movie_Name" : "Kite Runner, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2083,
+        "Budget" : 10215
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681131"),
+        "id" : 20,
+        "Movie_Name" : "Garden of the Finzi-Continis, The (Giardino dei Finzi-Contini, Il)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2219,
+        "Budget" : 10441
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681136"),
+        "id" : 25,
+        "Movie_Name" : "Suicide Killers",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2457,
+        "Budget" : 10049
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113c"),
+        "id" : 31,
+        "Movie_Name" : "Century of the Self, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2037,
+        "Budget" : 10496
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113d"),
+        "id" : 32,
+        "Movie_Name" : "Blood Relatives (Liens de sang, Les)",
+        "Movie_Genre" : "Crime|Drama|Mystery|Thriller",
+        "Production_Year " : 2224,
+        "Budget" : 10151
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681143"),
+        "id" : 38,
+        "Movie_Name" : "Garden of Words, The (Koto no ha no niwa)",
+        "Movie_Genre" : "Animation|Romance",
+        "Production_Year " : 2201,
+        "Budget" : 10352
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681148"),
+        "id" : 43,
+        "Movie_Name" : "Seven Brides for Seven Brothers",
+        "Movie_Genre" : "Comedy|Musical|Romance|Western",
+        "Production_Year " : 2338,
+        "Budget" : 10146
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068114d"),
+        "id" : 48,
+        "Movie_Name" : "Revenge for Jolly!",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2396,
+        "Budget" : 10100
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068114e"),
+        "id" : 49,
+        "Movie_Name" : "Dance Me Outside",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2393,
+        "Budget" : 10166
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068114f"),
+        "id" : 50,
+        "Movie_Name" : "Three to Tango",
+        "Movie_Genre" : "Comedy|Romance",
+        "Production_Year " : 2332,
+        "Budget" : 10458
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681152"),
+        "id" : 53,
+        "Movie_Name" : "Two Brothers (Deux frères)",
+        "Movie_Genre" : "Adventure|Children|Drama",
+        "Production_Year " : 2187,
+        "Budget" : 10337
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681154"),
+        "id" : 55,
+        "Movie_Name" : "Machine Girl, The (Kataude mashin gâru)",
+        "Movie_Genre" : "Action|Comedy|Fantasy|Horror|Thriller",
+        "Production_Year " : 2240,
+        "Budget" : 10364
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068115d"),
+        "id" : 64,
+        "Movie_Name" : "Aladin",
+        "Movie_Genre" : "Comedy|Fantasy|Musical|Romance",
+        "Production_Year " : 2378,
+        "Budget" : 10040
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068115e"),
+        "id" : 65,
+        "Movie_Name" : "Barchester Chronicles, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2002,
+        "Budget" : 10337
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681160"),
+        "id" : 67,
+        "Movie_Name" : "Run of the Country, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2430,
+        "Budget" : 10232
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681162"),
+        "id" : 69,
+        "Movie_Name" : "Man Who Would Be King, The",
+        "Movie_Genre" : "Adventure|Drama",
+        "Production_Year " : 2404,
+        "Budget" : 10207
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681166"),
+        "id" : 73,
+        "Movie_Name" : "Purple Ball, The (Lilovyy shar)",
+        "Movie_Genre" : "Fantasy|Sci-Fi",
+        "Production_Year " : 2103,
+        "Budget" : 10442
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681169"),
+        "id" : 76,
+        "Movie_Name" : "Tennessee",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2379,
+        "Budget" : 10151
+}
+Type "it" for more
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({$or : [{"Production_Year " : {$gt : 2000}}, {"Budget": {$gt : 10000}}]}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f80681120"),
+        "id" : 3,
+        "Movie_Name" : "Charlie Chan at the Olympics",
+        "Movie_Genre" : "Comedy|Crime|Mystery|Thriller",
+        "Production_Year " : 2316,
+        "Budget" : 10491
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681122"),
+        "id" : 5,
+        "Movie_Name" : "Io Island (Iodo)",
+        "Movie_Genre" : "Mystery",
+        "Production_Year " : 2170,
+        "Budget" : 10431
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681123"),
+        "id" : 6,
+        "Movie_Name" : "Room, The",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2451,
+        "Budget" : 9974
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681124"),
+        "id" : 7,
+        "Movie_Name" : "For the Love of a Dog",
+        "Movie_Genre" : "Children",
+        "Production_Year " : 2022,
+        "Budget" : 9619
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681126"),
+        "id" : 9,
+        "Movie_Name" : "In Their Sleep (Dans ton sommeil)",
+        "Movie_Genre" : "Horror|Thriller",
+        "Production_Year " : 1527,
+        "Budget" : 10040
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681128"),
+        "id" : 11,
+        "Movie_Name" : "Kite Runner, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2083,
+        "Budget" : 10215
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112a"),
+        "id" : 13,
+        "Movie_Name" : "Children of Leningradsky, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2166,
+        "Budget" : 9662
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112b"),
+        "id" : 14,
+        "Movie_Name" : "Battle of the Bulge",
+        "Movie_Genre" : "Action|Drama|War",
+        "Production_Year " : 2435,
+        "Budget" : 9774
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112e"),
+        "id" : 17,
+        "Movie_Name" : "Song of the Thin Man",
+        "Movie_Genre" : "Comedy|Crime|Drama|Musical|Mystery|Romance",
+        "Production_Year " : 1880,
+        "Budget" : 10408
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112f"),
+        "id" : 18,
+        "Movie_Name" : "Children of Heaven, The (Bacheha-Ye Aseman)",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2110,
+        "Budget" : 9779
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681131"),
+        "id" : 20,
+        "Movie_Name" : "Garden of the Finzi-Continis, The (Giardino dei Finzi-Contini, Il)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2219,
+        "Budget" : 10441
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681132"),
+        "id" : 21,
+        "Movie_Name" : "Journey to the West: Conquering the Demons (Daai wa sai you chi Chui mo chun kei)",
+        "Movie_Genre" : "Adventure|Comedy|Fantasy|Romance|IMAX",
+        "Production_Year " : 1916,
+        "Budget" : 10263
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681133"),
+        "id" : 22,
+        "Movie_Name" : "Sugar & Spice",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 2140,
+        "Budget" : 9504
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681134"),
+        "id" : 23,
+        "Movie_Name" : "I Am Maria (Jag är Maria)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1798,
+        "Budget" : 10290
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681136"),
+        "id" : 25,
+        "Movie_Name" : "Suicide Killers",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2457,
+        "Budget" : 10049
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681139"),
+        "id" : 28,
+        "Movie_Name" : "Ambush (Rukajärven tie)",
+        "Movie_Genre" : "Drama|Romance|War",
+        "Production_Year " : 1996,
+        "Budget" : 10390
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113a"),
+        "id" : 29,
+        "Movie_Name" : "Szamanka",
+        "Movie_Genre" : "Drama|Horror|Mystery",
+        "Production_Year " : 2216,
+        "Budget" : 9783
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113b"),
+        "id" : 30,
+        "Movie_Name" : "Miss Pettigrew Lives for a Day",
+        "Movie_Genre" : "Comedy|Romance",
+        "Production_Year " : 1990,
+        "Budget" : 10307
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113c"),
+        "id" : 31,
+        "Movie_Name" : "Century of the Self, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2037,
+        "Budget" : 10496
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113d"),
+        "id" : 32,
+        "Movie_Name" : "Blood Relatives (Liens de sang, Les)",
+        "Movie_Genre" : "Crime|Drama|Mystery|Thriller",
+        "Production_Year " : 2224,
+        "Budget" : 10151
+}
+Type "it" for more
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({$nor : [{"Production_Year " : {$gt : 2000}}, {"Budget": {$gt : 10000}}]}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111e"),
+        "id" : 1,
+        "Movie_Name" : "Barbarians at the Gate",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1964,
+        "Budget" : 9803
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111f"),
+        "id" : 2,
+        "Movie_Name" : "Looking for Cheyenne (Oublier Cheyenne)",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1616,
+        "Budget" : 9769
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681121"),
+        "id" : 4,
+        "Movie_Name" : "Man Who Fell to Earth, The",
+        "Movie_Genre" : "Drama|Sci-Fi",
+        "Production_Year " : 1732,
+        "Budget" : 9847
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681125"),
+        "id" : 8,
+        "Movie_Name" : "All at Sea",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1618,
+        "Budget" : 9895
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681127"),
+        "id" : 10,
+        "Movie_Name" : "Cardinal, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1651,
+        "Budget" : 9961
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681129"),
+        "id" : 12,
+        "Movie_Name" : "Raincoat",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1858,
+        "Budget" : 9980
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112c"),
+        "id" : 15,
+        "Movie_Name" : "Open Heart",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 1715,
+        "Budget" : 9832
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112d"),
+        "id" : 16,
+        "Movie_Name" : "Breaking Point",
+        "Movie_Genre" : "Thriller",
+        "Production_Year " : 1520,
+        "Budget" : 9516
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681130"),
+        "id" : 19,
+        "Movie_Name" : "French Fried Vacation (Les Bronzés)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1674,
+        "Budget" : 9590
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681135"),
+        "id" : 24,
+        "Movie_Name" : "Barbarian Queen II: The Empress Strikes Back",
+        "Movie_Genre" : "Action|Adventure|Fantasy",
+        "Production_Year " : 1978,
+        "Budget" : 9850
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681137"),
+        "id" : 26,
+        "Movie_Name" : "Woman Chaser, The",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1785,
+        "Budget" : 9879
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681138"),
+        "id" : 27,
+        "Movie_Name" : "Lovers, The (Les Amants)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1632,
+        "Budget" : 9824
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068113f"),
+        "id" : 34,
+        "Movie_Name" : "Crocodile Dundee in Los Angeles",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 1627,
+        "Budget" : 9760
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681142"),
+        "id" : 37,
+        "Movie_Name" : "Come Early Morning",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1579,
+        "Budget" : 9680
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681144"),
+        "id" : 39,
+        "Movie_Name" : "X-Men: Days of Future Past",
+        "Movie_Genre" : "Action|Adventure|Sci-Fi",
+        "Production_Year " : 1519,
+        "Budget" : 9939
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681151"),
+        "id" : 52,
+        "Movie_Name" : "Sarah Silverman:  We Are Miracles",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1529,
+        "Budget" : 9691
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681155"),
+        "id" : 56,
+        "Movie_Name" : "Air Force One",
+        "Movie_Genre" : "Action|Thriller",
+        "Production_Year " : 1727,
+        "Budget" : 9895
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681159"),
+        "id" : 60,
+        "Movie_Name" : "Special",
+        "Movie_Genre" : "Drama|Fantasy",
+        "Production_Year " : 1587,
+        "Budget" : 9990
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068115a"),
+        "id" : 61,
+        "Movie_Name" : "Leap of Faith",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 1809,
+        "Budget" : 9918
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068115f"),
+        "id" : 66,
+        "Movie_Name" : "Windy Day (Tuulinen päivä)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1979,
+        "Budget" : 9601
+}
+Type "it" for more
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({$nor : [{"Production_Year " : {$eq : 2000}}, {"Budget": {$eq : 10000}}]}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111e"),
+        "id" : 1,
+        "Movie_Name" : "Barbarians at the Gate",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1964,
+        "Budget" : 9803
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068111f"),
+        "id" : 2,
+        "Movie_Name" : "Looking for Cheyenne (Oublier Cheyenne)",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1616,
+        "Budget" : 9769
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681120"),
+        "id" : 3,
+        "Movie_Name" : "Charlie Chan at the Olympics",
+        "Movie_Genre" : "Comedy|Crime|Mystery|Thriller",
+        "Production_Year " : 2316,
+        "Budget" : 10491
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681121"),
+        "id" : 4,
+        "Movie_Name" : "Man Who Fell to Earth, The",
+        "Movie_Genre" : "Drama|Sci-Fi",
+        "Production_Year " : 1732,
+        "Budget" : 9847
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681122"),
+        "id" : 5,
+        "Movie_Name" : "Io Island (Iodo)",
+        "Movie_Genre" : "Mystery",
+        "Production_Year " : 2170,
+        "Budget" : 10431
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681123"),
+        "id" : 6,
+        "Movie_Name" : "Room, The",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2451,
+        "Budget" : 9974
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681124"),
+        "id" : 7,
+        "Movie_Name" : "For the Love of a Dog",
+        "Movie_Genre" : "Children",
+        "Production_Year " : 2022,
+        "Budget" : 9619
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681125"),
+        "id" : 8,
+        "Movie_Name" : "All at Sea",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1618,
+        "Budget" : 9895
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681126"),
+        "id" : 9,
+        "Movie_Name" : "In Their Sleep (Dans ton sommeil)",
+        "Movie_Genre" : "Horror|Thriller",
+        "Production_Year " : 1527,
+        "Budget" : 10040
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681127"),
+        "id" : 10,
+        "Movie_Name" : "Cardinal, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 1651,
+        "Budget" : 9961
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681128"),
+        "id" : 11,
+        "Movie_Name" : "Kite Runner, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2083,
+        "Budget" : 10215
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681129"),
+        "id" : 12,
+        "Movie_Name" : "Raincoat",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 1858,
+        "Budget" : 9980
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112a"),
+        "id" : 13,
+        "Movie_Name" : "Children of Leningradsky, The",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2166,
+        "Budget" : 9662
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112b"),
+        "id" : 14,
+        "Movie_Name" : "Battle of the Bulge",
+        "Movie_Genre" : "Action|Drama|War",
+        "Production_Year " : 2435,
+        "Budget" : 9774
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112c"),
+        "id" : 15,
+        "Movie_Name" : "Open Heart",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 1715,
+        "Budget" : 9832
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112d"),
+        "id" : 16,
+        "Movie_Name" : "Breaking Point",
+        "Movie_Genre" : "Thriller",
+        "Production_Year " : 1520,
+        "Budget" : 9516
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112e"),
+        "id" : 17,
+        "Movie_Name" : "Song of the Thin Man",
+        "Movie_Genre" : "Comedy|Crime|Drama|Musical|Mystery|Romance",
+        "Production_Year " : 1880,
+        "Budget" : 10408
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068112f"),
+        "id" : 18,
+        "Movie_Name" : "Children of Heaven, The (Bacheha-Ye Aseman)",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2110,
+        "Budget" : 9779
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681130"),
+        "id" : 19,
+        "Movie_Name" : "French Fried Vacation (Les Bronzés)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 1674,
+        "Budget" : 9590
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681131"),
+        "id" : 20,
+        "Movie_Name" : "Garden of the Finzi-Continis, The (Giardino dei Finzi-Contini, Il)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2219,
+        "Budget" : 10441
+}
+Type "it" for more
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find({$and :[{"Production_Year " : {$gt : 2000}}, {"Production_Year ": {$lt : 2010}}]}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068115e"),
+        "id" : 65,
+        "Movie_Name" : "Barchester Chronicles, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2002,
+        "Budget" : 10337
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681191"),
+        "id" : 116,
+        "Movie_Name" : "Mademoiselle Chambon",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 2004,
+        "Budget" : 10405
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806811c0"),
+        "id" : 163,
+        "Movie_Name" : "Enchanted Cottage, The",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 2008,
+        "Budget" : 10360
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806811e0"),
+        "id" : 195,
+        "Movie_Name" : "Faster Pussycat! Kill! Kill!",
+        "Movie_Genre" : "Action|Crime|Drama",
+        "Production_Year " : 2003,
+        "Budget" : 9892
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681237"),
+        "id" : 282,
+        "Movie_Name" : "Jenny",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2008,
+        "Budget" : 10008
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068126c"),
+        "id" : 335,
+        "Movie_Name" : "Reconstruction (Anaparastasi)",
+        "Movie_Genre" : "Crime|Drama",
+        "Production_Year " : 2008,
+        "Budget" : 9927
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681280"),
+        "id" : 355,
+        "Movie_Name" : "Nine Ways to Approach Helsinki (Yhdeksän tapaa lähestyä Helsinkiä)",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2009,
+        "Budget" : 9682
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068129b"),
+        "id" : 382,
+        "Movie_Name" : "Little City",
+        "Movie_Genre" : "Comedy|Romance",
+        "Production_Year " : 2003,
+        "Budget" : 9820
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806812a0"),
+        "id" : 387,
+        "Movie_Name" : "Jo Jo Dancer, Your Life is Calling",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2006,
+        "Budget" : 9637
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681341"),
+        "id" : 548,
+        "Movie_Name" : "Living in Emergency: Stories of Doctors Without Borders",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2009,
+        "Budget" : 9556
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681366"),
+        "id" : 585,
+        "Movie_Name" : "Badding",
+        "Movie_Genre" : "Comedy|Drama|Musical",
+        "Production_Year " : 2004,
+        "Budget" : 9629
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681397"),
+        "id" : 634,
+        "Movie_Name" : "Silence Before Bach, The (Die Stille vor Bach) ",
+        "Movie_Genre" : "Musical",
+        "Production_Year " : 2001,
+        "Budget" : 10333
+}
+
+////////////////////////////////////////////////////////////
+
+
+> db.mockMovie.find().sort({"Production_Year ":-1,"Movie_Name":1}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068121c"),
+        "id" : 255,
+        "Movie_Name" : "Front Page Woman",
+        "Movie_Genre" : "Comedy|Romance",
+        "Production_Year " : 2500,
+        "Budget" : 10111
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068124b"),
+        "id" : 302,
+        "Movie_Name" : "Love Songs (Les chansons d'amour)",
+        "Movie_Genre" : "Drama|Musical",
+        "Production_Year " : 2500,
+        "Budget" : 9888
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681150"),
+        "id" : 51,
+        "Movie_Name" : "Footnote (Hearat Shulayim)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2499,
+        "Budget" : 9508
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068125f"),
+        "id" : 322,
+        "Movie_Name" : "Cool, Calm and Collected (Calmos)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 2497,
+        "Budget" : 9530
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681250"),
+        "id" : 307,
+        "Movie_Name" : "Pillow of Death",
+        "Movie_Genre" : "Mystery|Thriller",
+        "Production_Year " : 2497,
+        "Budget" : 10162
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806812d8"),
+        "id" : 443,
+        "Movie_Name" : "Thirty-Five Something (Tout pour plaire)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 2497,
+        "Budget" : 9767
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806813f9"),
+        "id" : 732,
+        "Movie_Name" : "Swing Vote",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2496,
+        "Budget" : 10246
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068138c"),
+        "id" : 623,
+        "Movie_Name" : "Upswing (Nousukausi)",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2496,
+        "Budget" : 10177
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681497"),
+        "id" : 890,
+        "Movie_Name" : "Wise Guys",
+        "Movie_Genre" : "Comedy|Crime",
+        "Production_Year " : 2496,
+        "Budget" : 9925
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806814cf"),
+        "id" : 946,
+        "Movie_Name" : "Man with the Golden Gun, The",
+        "Movie_Genre" : "Action|Adventure|Thriller",
+        "Production_Year " : 2494,
+        "Budget" : 9774
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681231"),
+        "id" : 276,
+        "Movie_Name" : "Skeleton Twins, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2494,
+        "Budget" : 9707
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681362"),
+        "id" : 581,
+        "Movie_Name" : "Wankers, The (Les branleuses)",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2492,
+        "Budget" : 9784
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068118a"),
+        "id" : 109,
+        "Movie_Name" : "Laterna, ftoheia kai garyfallo",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2489,
+        "Budget" : 9924
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068135a"),
+        "id" : 573,
+        "Movie_Name" : "Port of Call (Hamnstad)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2489,
+        "Budget" : 10499
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806813fd"),
+        "id" : 736,
+        "Movie_Name" : "Clonus Horror, The",
+        "Movie_Genre" : "Horror|Sci-Fi",
+        "Production_Year " : 2487,
+        "Budget" : 9585
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068147a"),
+        "id" : 861,
+        "Movie_Name" : "Summer Storm (Sommersturm)",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 2483,
+        "Budget" : 9944
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068144b"),
+        "id" : 814,
+        "Movie_Name" : "Hypnotist, The (Hypnotisören)",
+        "Movie_Genre" : "Thriller",
+        "Production_Year " : 2482,
+        "Budget" : 9554
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681485"),
+        "id" : 872,
+        "Movie_Name" : "Cloverfield",
+        "Movie_Genre" : "Action|Mystery|Sci-Fi|Thriller",
+        "Production_Year " : 2481,
+        "Budget" : 9657
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806814de"),
+        "id" : 961,
+        "Movie_Name" : "On the Town",
+        "Movie_Genre" : "Comedy|Musical|Romance",
+        "Production_Year " : 2477,
+        "Budget" : 9881
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806811dd"),
+        "id" : 192,
+        "Movie_Name" : "Hollywood Ending",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2476,
+        "Budget" : 9727
+}
+Type "it" for more
+
+
+> db.mockMovie.find().sort({"Production_Year ":-1,"Movie_Name":1}).skip(10).limit(5).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f80681231"),
+        "id" : 276,
+        "Movie_Name" : "Skeleton Twins, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2494,
+        "Budget" : 9707
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681362"),
+        "id" : 581,
+        "Movie_Name" : "Wankers, The (Les branleuses)",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2492,
+        "Budget" : 9784
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068118a"),
+        "id" : 109,
+        "Movie_Name" : "Laterna, ftoheia kai garyfallo",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2489,
+        "Budget" : 9924
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068135a"),
+        "id" : 573,
+        "Movie_Name" : "Port of Call (Hamnstad)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2489,
+        "Budget" : 10499
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806813fd"),
+        "id" : 736,
+        "Movie_Name" : "Clonus Horror, The",
+        "Movie_Genre" : "Horror|Sci-Fi",
+        "Production_Year " : 2487,
+        "Budget" : 9585
+}
+
+
+/////////////////////////////////////////////////////
+
+
+> db.mockMovie.find().sort({"Production_Year":-1,"Movie_Name":1}).limit(10).forEach((el) => db.mockMovie.update({"_id" : el._id},{$unset:{"Movie_Genre":1}}));
+>  db.mockMovie.find().sort({"Production_Year ":-1,"Movie_Name":1}).pretty();
+{
+        "_id" : ObjectId("611c2758faca6e5f8068121c"),
+        "id" : 255,
+        "Movie_Name" : "Front Page Woman",
+        "Movie_Genre" : "Comedy|Romance",
+        "Production_Year " : 2500,
+        "Budget" : 10111
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068124b"),
+        "id" : 302,
+        "Movie_Name" : "Love Songs (Les chansons d'amour)",
+        "Movie_Genre" : "Drama|Musical",
+        "Production_Year " : 2500,
+        "Budget" : 9888
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681150"),
+        "id" : 51,
+        "Movie_Name" : "Footnote (Hearat Shulayim)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2499,
+        "Budget" : 9508
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068125f"),
+        "id" : 322,
+        "Movie_Name" : "Cool, Calm and Collected (Calmos)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 2497,
+        "Budget" : 9530
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681250"),
+        "id" : 307,
+        "Movie_Name" : "Pillow of Death",
+        "Movie_Genre" : "Mystery|Thriller",
+        "Production_Year " : 2497,
+        "Budget" : 10162
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806812d8"),
+        "id" : 443,
+        "Movie_Name" : "Thirty-Five Something (Tout pour plaire)",
+        "Movie_Genre" : "Comedy",
+        "Production_Year " : 2497,
+        "Budget" : 9767
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806813f9"),
+        "id" : 732,
+        "Movie_Name" : "Swing Vote",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2496,
+        "Budget" : 10246
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068138c"),
+        "id" : 623,
+        "Movie_Name" : "Upswing (Nousukausi)",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2496,
+        "Budget" : 10177
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681497"),
+        "id" : 890,
+        "Movie_Name" : "Wise Guys",
+        "Movie_Genre" : "Comedy|Crime",
+        "Production_Year " : 2496,
+        "Budget" : 9925
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806814cf"),
+        "id" : 946,
+        "Movie_Name" : "Man with the Golden Gun, The",
+        "Movie_Genre" : "Action|Adventure|Thriller",
+        "Production_Year " : 2494,
+        "Budget" : 9774
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681231"),
+        "id" : 276,
+        "Movie_Name" : "Skeleton Twins, The",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2494,
+        "Budget" : 9707
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681362"),
+        "id" : 581,
+        "Movie_Name" : "Wankers, The (Les branleuses)",
+        "Movie_Genre" : "Documentary",
+        "Production_Year " : 2492,
+        "Budget" : 9784
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068118a"),
+        "id" : 109,
+        "Movie_Name" : "Laterna, ftoheia kai garyfallo",
+        "Movie_Genre" : "Comedy|Drama|Romance",
+        "Production_Year " : 2489,
+        "Budget" : 9924
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068135a"),
+        "id" : 573,
+        "Movie_Name" : "Port of Call (Hamnstad)",
+        "Movie_Genre" : "Drama",
+        "Production_Year " : 2489,
+        "Budget" : 10499
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806813fd"),
+        "id" : 736,
+        "Movie_Name" : "Clonus Horror, The",
+        "Movie_Genre" : "Horror|Sci-Fi",
+        "Production_Year " : 2487,
+        "Budget" : 9585
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068147a"),
+        "id" : 861,
+        "Movie_Name" : "Summer Storm (Sommersturm)",
+        "Movie_Genre" : "Drama|Romance",
+        "Production_Year " : 2483,
+        "Budget" : 9944
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f8068144b"),
+        "id" : 814,
+        "Movie_Name" : "Hypnotist, The (Hypnotisören)",
+        "Movie_Genre" : "Thriller",
+        "Production_Year " : 2482,
+        "Budget" : 9554
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f80681485"),
+        "id" : 872,
+        "Movie_Name" : "Cloverfield",
+        "Movie_Genre" : "Action|Mystery|Sci-Fi|Thriller",
+        "Production_Year " : 2481,
+        "Budget" : 9657
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806814de"),
+        "id" : 961,
+        "Movie_Name" : "On the Town",
+        "Movie_Genre" : "Comedy|Musical|Romance",
+        "Production_Year " : 2477,
+        "Budget" : 9881
+}
+{
+        "_id" : ObjectId("611c2758faca6e5f806811dd"),
+        "id" : 192,
+        "Movie_Name" : "Hollywood Ending",
+        "Movie_Genre" : "Comedy|Drama",
+        "Production_Year " : 2476,
+        "Budget" : 9727
+}
+Type "it" for more
+
+
+
+
+
