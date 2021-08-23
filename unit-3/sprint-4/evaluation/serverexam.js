@@ -127,6 +127,24 @@ app.get("/gen", async (request, respond) => {
 
 ////////////////////////////////////////////////////
 
+
+/////////////////Products greater than 500///////////////////////////
+
+app.get("/prodhigh", async (request, respond) => {
+    try {
+        const prohigh = await Product.find({ "price": { $gt: 500 } }).lean().exec();
+        return respond.status(201).send(prohigh);
+    }
+    catch (err)
+    {
+        return respond.status(400).send(err.message);
+    }
+})
+
+//////////////////////////////////////////////////////////////////////
+
+
+
 app.listen(5858, async () => {
     await connect();
     console.log("listening on port 5858")
