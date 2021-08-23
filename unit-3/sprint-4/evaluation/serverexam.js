@@ -17,13 +17,17 @@ const connect = () => {
 
 const productSchema = new mongoose.Schema({
     name: { type: String, require: true },
-    gender: [{ type: String, require: true }],
     price: { type: Number, require: true },
     colorId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "color",
         require: true,
-    }]
+    }],
+    genderId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "color",
+        require: true, 
+    }
 }, {
     versionKey:false
 })
@@ -42,6 +46,15 @@ const Color = mongoose.model("color", colorSchema)
 
 //////////////////////////////////////////////////////
 
+const genderSchema = new mongoose.Schema({
+    gender :{type:String, require:true}
+}, {
+    versionKey:false
+})
+
+const Gender = mongoose.model("gender", genderSchema) 
+
+/////////////////////////////////////////////////////////
 
 app.post("/prod", async (request, respond) => {
     try {
@@ -52,6 +65,16 @@ app.post("/prod", async (request, respond) => {
         return respond.status(400).send(err.message);
     }
 });
+
+app.get("/prod", async (request, respond) => {
+    try {
+        const pro = await Product.find().lean().exec();
+        return respond.status(201).send(pro);
+    }
+     catch (err) {
+        return respond.status(400).send(err.message);
+    }
+})
   
 
 app.listen(5858, async () => {
