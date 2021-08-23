@@ -5,6 +5,7 @@ const app = express();
 
 app.use(express.json());
 
+
 const connect = () => {
     return mongoose.connect("mongodb://127.0.0.1:27017/Olympic", {
         useNewUrlParser: true,
