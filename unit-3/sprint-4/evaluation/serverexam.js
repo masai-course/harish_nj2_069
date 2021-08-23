@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
     }],
     genderId: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "color",
+        ref: "gender",
         require: true, 
     }]
 }, {
@@ -143,7 +143,92 @@ app.get("/prodhigh", async (request, respond) => {
 
 //////////////////////////////////////////////////////////////////////
 
+//////////////////////////products by men and women/////////////////////////
 
+app.get("/prodmw", async (request, respond) => {
+    try {
+        const promw = await Product.find({ $and: [{ "genderId": { $eq: "61236f612f164903c4cdbafa" } }, {"genderId" : {$eq: "61236f662f164903c4cdbafb"}}] }).lean().exec();
+        return respond.status(201).send(promw);
+    }
+    catch (err)
+    {
+        return respond.status(400).send(err.message);
+    }
+})
+
+///////////// match 1 colour///////////////////////////////////
+
+app.get("/prod/:color", async (request, respond) => {
+    try {
+        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
+        let array = [];
+        for (let i = 0; i < match.length; i++)
+        {
+            for (let j = 0; j < match[i].colorId.length; j++)
+            {
+                if (match[i].colorId[j].colorname == request.params.color)
+                {
+                    array.push(match[i]);
+                    }
+                }
+            }
+        return respond.status(201).send(array);
+    }
+    catch (err)
+    {
+        return respond.status(400).send(err.message);
+    }
+})
+
+//////////////////////////////////////////////////////////////////////
+
+///////////////////products more than 3 different colors///////////////
+
+app.get("/prodcolormorethanthree", async (request, respond) => {
+    try {
+        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
+        let array = [];
+        for (let i = 0; i < match.length; i++) {
+            if (match[i].colorId.length > 3) {
+                array.push(match[i]);
+            }
+        }
+        return respond.status(201).send(array);
+    }
+    catch (err) {
+        return respond.status(400).send(err.message);
+    }
+})
+
+///////////////////////////////////////////////////////////////////
+
+
+///////////////product with most colors////////////////////////////
+
+app.get("/prodcolormost", async (request, respond) => {
+    try {
+        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
+        let array = [];
+        let l = 0;
+        for (let i = 0; i < match.length; i++)
+        {
+            if (match[i].colorId.length > l)
+            {
+                l = match[i].colorId.length;
+                array.push(match[i]);
+            }
+        }
+        return respond.status(201).send(array);
+    }
+     catch (err) {
+        return respond.status(400).send(err.message);
+    }
+})
+
+//////////////////////////////////////////////////////
+
+
+            
 
 app.listen(5858, async () => {
     await connect();
