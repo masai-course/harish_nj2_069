@@ -156,11 +156,32 @@ app.get("/prodmw", async (request, respond) => {
     }
 })
 
+
+///////////////////products more than 3 different colors///////////////
+
+app.get("/prodcolormorethanthree", async (request, respond) => {
+    try {
+        const match = await Product.find().lean().exec();
+        let array = [];
+        for (let i = 0; i < match.length; i++) {
+            if (match[i].colorId.length > 3) {
+                array.push(match[i]);
+            }
+        }
+        return respond.status(201).send(array);
+    }
+    catch (err) {
+        return respond.status(400).send(err.message);
+    }
+})
+
+///////////////////////////////////////////////////////////////////
+
 ///////////// match 1 colour///////////////////////////////////
 
 app.get("/prod/:color", async (request, respond) => {
     try {
-        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
+        const match = await Product.find().lean().exec();
         let array = [];
         for (let i = 0; i < match.length; i++)
         {
@@ -182,32 +203,12 @@ app.get("/prod/:color", async (request, respond) => {
 
 //////////////////////////////////////////////////////////////////////
 
-///////////////////products more than 3 different colors///////////////
-
-app.get("/prodcolormorethanthree", async (request, respond) => {
-    try {
-        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
-        let array = [];
-        for (let i = 0; i < match.length; i++) {
-            if (match[i].colorId.length > 3) {
-                array.push(match[i]);
-            }
-        }
-        return respond.status(201).send(array);
-    }
-    catch (err) {
-        return respond.status(400).send(err.message);
-    }
-})
-
-///////////////////////////////////////////////////////////////////
-
 
 ///////////////product with most colors////////////////////////////
 
 app.get("/prodcolormost", async (request, respond) => {
     try {
-        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
+        const match = await Product.find().lean().exec();
         let array = [];
         let l = 0;
         for (let i = 0; i < match.length; i++)
@@ -227,6 +228,25 @@ app.get("/prodcolormost", async (request, respond) => {
 
 //////////////////////////////////////////////////////
 
+/////////////////////total number of produts on site///////////////////
+
+
+app.get("/prodtotal", async (request, respond) => {
+   try {
+        const match = await Product.find().populate("genderId").populate("colorId").lean().exec();
+        let t = 0;
+        for (let i = 0; i < match.length; i++) {
+            t += (match[i].colorId.length);
+            //pr = 1;
+           // console.log(t);
+       }
+       t = String(t);
+        return respond.send(t);
+   }
+    catch (err) {
+        return respond.status(400).send(err.message);
+    }
+})
 
             
 
