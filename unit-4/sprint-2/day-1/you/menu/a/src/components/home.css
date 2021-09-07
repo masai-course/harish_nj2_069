@@ -1,0 +1,9 @@
+.home
+{
+    background-color: rgb(207,58,117);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(207,58,117);
+}
