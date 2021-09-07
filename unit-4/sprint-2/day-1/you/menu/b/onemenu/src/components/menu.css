@@ -1,0 +1,89 @@
+.menu
+{
+    display : grid;
+    grid-template-columns: repeat(2, 15%);
+    margin-top: 100px;
+    grid-gap: 20px;
+    align-items: auto;
+    justify-content: center;
+}
+
+.join
+{
+    background-color: rgb(26,155,203);
+    color: white;
+    border-color: rgb(26,155,203);
+     border-radius: 50px;
+      width: 150px;
+    height: 30px;
+}
+
+.settings
+{
+    background-color: rgb(121,175,187);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(121,175,187);
+}
+
+.login
+{
+    background-color: rgb(247,149,35);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(247,149,35);
+}
+
+.contact
+{
+    background-color: rgb(208,48,61);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(208,48,61);
+}
+
+.search
+{
+    background-color: rgb(109,161,61);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(109,161,61);
+}
+
+.help
+{
+    background-color:rgb(87,83,148);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(87,83,148);
+}
+
+.home
+{
+    background-color: rgb(207,58,117);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(207,58,117);
+}
+
+.download
+{
+    background-color: rgb(146,110,54);
+    border-radius: 50px;
+    width: 150px;
+    height: 30px;
+    color: white;
+    border-color: rgb(146,110,54);
+}
