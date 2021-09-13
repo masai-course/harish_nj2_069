@@ -1,13 +1,13 @@
 
-export default function DisplayItems({ groc }) {
-    const { title, status } = groc;
+export default function Displaywish({ grocw }) {
+    const { title, status } = grocw;
 
     return <div
     
         style={{
             border: "1px solid black",
             width: "20%",
-            margin: "auto",
+            marginleft: "auto",
         marginTop: "10px"}}>{title}</div>
 }
     // let arr = groc.map((e) =>
