@@ -12,7 +12,7 @@ export default function TopSection()
         console.log(e.target.value);
     }
     const finallist = () => {
-        const payload = {status: true, title: text,id:uuid()};
+        const payload = {status: true, title: text, id:uuid()};
         setfinalglist([...finalglist, payload]);
     }
      console.log(finalglist);
@@ -29,10 +29,9 @@ export default function TopSection()
             <input onChange={handleChange} type="text" placeholder="enter groceries" />
             <button onClick={finallist}>Add to Final list</button>
             <button onClick={wishlist}>Add to Wish list</button>
-            {/* {finalglist.map((e) => (
+            {finalglist.map((e) => (
              <DisplayItems key={e.id} groc={e}/>
-            ))} */}
-            <DisplayItems handleAdd={finalglist}/>
+            ))}
             </div>
     )
 }

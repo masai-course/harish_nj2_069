@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <TopSection />
       {/* <BottomSection /> */}
-      <DisplayItems finalglist/>
+      {/* <DisplayItems finalglist/> */}
     </div>
   );
 }
