@@ -1,0 +1,19 @@
+.inp{
+    width: 300px;
+    border-radius: 10px;
+    height: 40px;
+    background-color: FEFEFE;
+    margin: auto;
+}
+.btn{
+    width: 50px;
+    height: 40px;
+    margin-left: 20px;
+    border-radius: 10px;
+     background: white;
+}
+.body{
+    background: skyblue;
+    height: 600px;
+    width: 100%;
+}
