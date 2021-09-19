@@ -1,0 +1,102 @@
+.main
+{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 5%;
+    padding: 5%;
+}
+
+.parent
+{
+    height:230px;
+    width:450px;
+    border:10px solid black;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-gap: 10%;
+     padding: 2%;
+     border-radius: 20px;
+     border-color:rgb(243,243,243);
+}
+
+.fchild:nth-child(2)
+{
+    width: 180px;
+    /* border:2px solid black; */
+}
+
+.image
+{
+   
+    height: 170px;
+    width : 150px;
+    inline-size: hidden;
+}
+
+.name
+{
+    color:brown;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.special, .oneprice
+{
+    color:rgb(150,181,215);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.rating
+{
+    height: 25px;
+    width: 30px;
+    background-color: rgb(148,172,48);
+    color: white;
+    font-weight: 500;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.votes, .reviews
+{
+    color:rgb(150,181,215);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.mprice
+{
+    color:black;
+    font-weight: 500;
+}
+
+.bton
+{
+    height: 50px;
+    width: 150px;
+    color: rgb(119,161,81);
+    font-weight: 600;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: rgb(233,244,236);
+    margin-left: 310px;  
+    cursor: pointer;
+}
+.border1
+{
+   /* border-bottom-color: 2px solid rgb(119,161,81); */
+    height: 50px;
+    width: 460px;
+    border: 2px solid rgb(240,240,240)
+}
+
+form
+{
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    grid-gap:5%;
+}
+
+
