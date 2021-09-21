@@ -1,0 +1,17 @@
+.apple
+{
+    height: 800px;
+    width: 1000px;
+    margin: auto;
+    background-color: rgb(245,245,245);
+    font-size: 30px;
+}
+
+button
+{
+    background-color: black;
+    height: 80px;
+    width: 200px;
+    color:white;
+    font-size: 30px;
+}
