@@ -1,0 +1,31 @@
+.main
+{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 5%;
+    padding: 5%;
+}
+.image
+{
+ height: 170px;
+ width: 150px;
+ inline-size: hidden;
+}
+
+.parent
+{
+    height: 180px;
+    width: 400px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    grid-gap: 10%;
+    padding: 2%;
+    border-radius: 20px;
+}
+
+.fchild
+{
+    align-items: left;
+}
+
