@@ -1,0 +1,21 @@
+{
+    "books":[
+        {
+            "id": "1",
+            "Title":"Sachin Tendulkar",
+            "rating": "5",
+            "description":"Sachin AUto Biography",
+            "Author": "Sachin",
+            "image": "https://images.news18.com/ibnlive/uploads/2021/08/sachin-tendulkar-52-162873879516x9.jpg"
+        },
+        {
+            "id": "2",
+            "Title":"Sourav Ganguly",
+            "rating": "4.8",
+            "description":"Ganguly AUto Biography",
+            "Author": "Sourav Ganguly",
+            "image": "https://images.news18.com/ibnlive/uploads/2020/07/1595680401_sourav-ganguly.jpg"
+        }
+        
+    ]
+}
