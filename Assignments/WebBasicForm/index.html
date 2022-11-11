@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Form</title>
+    <style>
+      /* Write all necessery css here  */
+      .container
+      {
+        display: flex;
+        justify-content: space-around;
+      }
+      .Heading
+      {
+        text-align: center;
+      }
+      .signUpForm
+      {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 30px;
+      }
+      .signInForm
+      {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 30px;
+      }
+      input 
+      {
+        height: 40px;
+        width: 350px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      button
+      {
+        height: 40px;
+        width: 358px;
+        font-size: 34px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="signUpForm">
+        <h1 class="Heading">Signup Form</h1>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email Address" />
+        <input type="text" placeholder="Country" />
+        <input type="number" placeholder="Phone" />
+        <input type="password" placeholder="Password" />
+        <button>Creat Account</button>
+        <!-- Create the Signup form here  -->
+    </div>
+  
+    <div class="signInForm">
+      <h1 class="Heading">Signin Form</h1>
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email Address" />
+      <input type="password" placeholder="Password" />
+      <button>SignIn</button>
+      <!-- Create the Signin Form Here  -->
+    </div>
+    </div>
+  </body>
+</html>
